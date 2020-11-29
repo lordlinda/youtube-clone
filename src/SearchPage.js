@@ -1,11 +1,14 @@
-import React, { useEffect, useParams } from "react";
+import React, { useEffect } from "react";
 import "./SearchPage.css";
 import TuneOutlinedIcon from "@material-ui/icons/TuneOutlined";
 import VideoRow from "./VideoRow";
 import Fuse from "fuse.js";
-
+import { useParams } from "react-router-dom";
 function SearchPage() {
-  useEffect(() => {}, []);
+  const { text } = useParams();
+  useEffect(() => {
+    console.log(text);
+  }, []);
 
   return (
     <div className="searchPage">

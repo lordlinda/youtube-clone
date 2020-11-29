@@ -13,44 +13,35 @@
   object-fit: contain;
   margin-left: 20px;
 }
-
+.header__input > input {
+  flex: 1;
+  border: none;
+  outline: none;
+  border-right: 1px solid #000;
+}
 .header__left {
   display: flex;
 }
 .header__input {
-  display: block;
-}
-.header__input > input {
-  display: none;
+  display: flex;
+  align-items: center;
+  border: 1px solid #000;
 }
 
 .header__right {
-  display: flex;
-  align-items: center;
+  display: none;
 }
 .header__icon {
   margin-right: 5px;
 }
 
 @media only screen and (min-width: 500px) {
-  .header__input > input {
-    display: block;
-    flex: 1;
-    border: none;
-    outline: none;
+  .header__input {
   }
 
-  .header__input {
+  ,
+  .header__right {
     display: flex;
     align-items: center;
-    width: 40%;
-    border: 1px solid #000;
-  }
-
-  .header__inputButton {
-    width: 50px !important;
-    background-color: #fafafa;
-    border-left: 1px solid #000;
-    color: gray;
   }
 }
