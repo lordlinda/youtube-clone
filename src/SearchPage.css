@@ -1,0 +1,26 @@
+.searchPage {
+  flex: 1;
+  margin-left: 20px;
+}
+.searchPage__filter {
+  display: flex;
+  align-items: center;
+  color: #606060;
+}
+
+.searchPage__filter > h2 {
+  margin-left: 10px;
+  font-size: 22px;
+}
+.searchPage > hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 0;
+  height: 1px;
+  background-color: lightgray;
+}
+@media only screen and (min-width: 800px) {
+  .searchPage {
+    flex: 0.8;
+  }
+}

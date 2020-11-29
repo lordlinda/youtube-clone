@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import Header from "./Header";
+import RecommendedVideos from "./RecommendedVideos";
+import Sidebar from "./Sidebar";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import SearchPage from "./SearchPage";
+import { useState } from "react";
+import { searchContext } from "./context";
 function App() {
+  const [search, setSearch] = useState("");
+
+  const handleSearch = (value) => {
+    setSearch(value);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <searchContext.Provider value={{ search, updateSearch: handleSearch }}>
+        <Router>
+          {/**header */}
+          <Header />
+          {/**sidebar */}
+          <div className="app__page">
+            <Sidebar />
+            <Switch>
+              <Route exact path="/" component={RecommendedVideos} />
+              <Route exact path="/search/:text" component={SearchPage} />
+            </Switch>
+          </div>
+        </Router>
+      </searchContext.Provider>
     </div>
   );
 }

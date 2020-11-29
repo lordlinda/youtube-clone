@@ -1,0 +1,19 @@
+.carousel {
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  margin: 20px 0px;
+}
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+.carousel > p {
+  background: #e5e5e5;
+  border-radius: 20px;
+  margin-left: 10px;
+  padding: 10px 20px;
+  border: 1px solid #e3e3e3;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+}

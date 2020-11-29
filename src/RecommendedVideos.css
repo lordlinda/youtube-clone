@@ -1,0 +1,25 @@
+.recommendedvideos {
+  flex: 1;
+  background-color: #f9f9f9;
+  padding: 10px 20px;
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
+.recommendedVideos__videos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.loading__icon {
+  width: 20%;
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 800px) {
+  .recommendedvideos {
+    flex: 0.8;
+  }
+}

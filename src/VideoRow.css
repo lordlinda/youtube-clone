@@ -1,0 +1,39 @@
+.videoRow {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  max-width: 700px;
+}
+.videoRow > img {
+  object-fit: cover;
+  width: 300px;
+  height: 169px;
+}
+.videoRow__text {
+  margin-left: 14px;
+}
+.videoRow__text > h2 {
+  font-weight: 500;
+}
+
+.videoRow__description {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #606060;
+}
+.videoRow__subs {
+  background-color: lightgray;
+  padding: 2px;
+}
+.videoRow__subsNumber {
+  font-weight: bolder;
+  color: rgb(84, 157, 211);
+}
+.videoRow__headline {
+  color: #606060;
+  font-size: 15px;
+}
+.videoRow__channel {
+  margin: 10px 0px;
+  color: #606060;
+}
