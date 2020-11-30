@@ -19,7 +19,7 @@ function SearchPage() {
     )
       .then((res) => {
         const fuse = new Fuse(res.data.results, {
-          keys: ["original_name", "original_title"],
+          keys: ["original_name", "name", "title"],
         });
         const results = fuse.search(text).map(({ item }) => item);
         setSearchResults(results);
