@@ -9,6 +9,7 @@ import { Avatar } from "@material-ui/core";
 import { Link } from "react-router-dom";
 function Header() {
   const [searchTerm, setSearchTerm] = useState("");
+
   const handleInput = (e) => {
     setSearchTerm(e.target.value);
   };
@@ -26,7 +27,7 @@ function Header() {
       <div className="header__input">
         <input
           type="text"
-          placeholder="search"
+          placeholder="Search"
           value={searchTerm}
           onChange={handleInput}
         />

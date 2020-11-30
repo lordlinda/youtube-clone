@@ -1,14 +1,37 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./SearchPage.css";
 import TuneOutlinedIcon from "@material-ui/icons/TuneOutlined";
 import VideoRow from "./VideoRow";
 import Fuse from "fuse.js";
+import Axios from "./Axios";
 import { useParams } from "react-router-dom";
+import CircularProgress from "@material-ui/core/CircularProgress";
+
+const base_url = "https://image.tmdb.org/t/p/original";
 function SearchPage() {
   const { text } = useParams();
+  const [searchResults, setSearchResults] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const fetchData = async () => {
+    setLoading(true);
+    await Axios.get(
+      "/trending/all/week?api_key=3a8cbed0439996949f847342988e924a&language=en-US"
+    )
+      .then((res) => {
+        const fuse = new Fuse(res.data.results, {
+          keys: ["original_name", "original_title"],
+        });
+        const results = fuse.search(text).map(({ item }) => item);
+        setSearchResults(results);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   useEffect(() => {
-    console.log(text);
-  }, []);
+    fetchData();
+  }, [text]);
 
   return (
     <div className="searchPage">
@@ -18,14 +41,23 @@ function SearchPage() {
       </div>
       <hr />
 
-      <VideoRow
-        views="304M"
-        channel="pasbancLove"
-        timestamp="2hrs ago"
-        description="New Pasbanc Features"
-        title="Pasbanc Fever"
-        image="https://images.unsplash.com/photo-1575739967915-f06fdc268a5b?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nnx8ZmFjZXN8ZW58MHx8MHw%3D&auto=format&fit=crop&w=500&q=60"
-      />
+      {!loading ? (
+        searchResults.map((result) => (
+          <VideoRow
+            key={result.id}
+            views={result.vote_count}
+            channel="@movieLover"
+            timestamp={result.first_air_date || result.release_date}
+            description={result.overview}
+            title={result.original_name || result.original_title}
+            image={`${base_url}${result.backdrop_path}`}
+          />
+        ))
+      ) : (
+        <div className="loading__icon">
+          <CircularProgress />
+        </div>
+      )}
     </div>
   );
 }

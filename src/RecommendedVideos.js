@@ -71,12 +71,14 @@ function RecommendedVideos() {
           movies.map((movie) => (
             <VideoCard
               key={movie.id}
-              title={movie.original_title}
+              title={movie?.name || movie?.title || movie?.original_name}
               channel="MovieLover"
               channelImage={`${base_url}${movie.poster_path}`}
               views={movie.vote_count}
               timestamp={movie.release_date}
               image={`${base_url}${movie.backdrop_path}`}
+              description={movie.overview}
+              verified
             />
           ))
         ) : (

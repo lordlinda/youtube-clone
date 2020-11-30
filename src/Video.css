@@ -5,6 +5,7 @@
 
 .videoCard__thumbnail {
   width: 100%;
+  cursor: pointer;
 }
 
 .videoCard__info {

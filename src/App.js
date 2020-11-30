@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import SearchPage from "./SearchPage";
 import { useState } from "react";
 import { searchContext } from "./context";
+import VideoPage from "./VideoPage";
 function App() {
   const [search, setSearch] = useState("");
 
@@ -25,6 +26,7 @@ function App() {
             <Switch>
               <Route exact path="/" component={RecommendedVideos} />
               <Route exact path="/search/:text" component={SearchPage} />
+              <Route exact path="/watch/:id" component={VideoPage} />
             </Switch>
           </div>
         </Router>

@@ -3,8 +3,7 @@ import "./Carousel.css";
 import { searchContext } from "./context";
 
 function Carousel() {
-  const { search, updateSearch } = useContext(searchContext);
-  console.log(search);
+  const { updateSearch } = useContext(searchContext);
 
   const handleFind = (value) => {
     updateSearch(value);

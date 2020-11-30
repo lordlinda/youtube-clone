@@ -13,21 +13,26 @@
   object-fit: contain;
   margin-left: 20px;
 }
-.header__input > input {
-  flex: 1;
-  border: none;
-  outline: none;
-  border-right: 1px solid #000;
-}
+
 .header__left {
   display: flex;
 }
 .header__input {
   display: flex;
   align-items: center;
-  border: 1px solid #000;
+  border: 1px solid lightgray;
 }
 
+.header__input > input {
+  flex: 0.8;
+  border: none;
+  outline: none;
+  padding: 0 10px;
+}
+.header__inputButton {
+  background: #f0f0f0;
+  flex: 0.2;
+}
 .header__right {
   display: none;
 }
@@ -36,10 +41,6 @@
 }
 
 @media only screen and (min-width: 500px) {
-  .header__input {
-  }
-
-  ,
   .header__right {
     display: flex;
     align-items: center;

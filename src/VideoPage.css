@@ -1,0 +1,34 @@
+.videoPage {
+  width: 100vw;
+}
+.videoPage__info {
+  margin-top: 10px;
+}
+.videoPage__right {
+  display: flex;
+  align-items: center;
+  padding: 0px 10px;
+}
+.videoPage__right > .MuiSvgIcon-root {
+  color: #606060;
+  margin-left: 12px;
+  cursor: pointer;
+}
+.videoPage__description {
+  margin-top: 10px;
+  padding: 20px;
+  line-height: 20px;
+}
+.videoPage__left {
+  padding: 10px 20px;
+}
+.videoPage__left > h4 {
+  font-size: 15px;
+}
+
+@media only screen and (min-width: 700px) {
+  .videoPage__info {
+    display: flex;
+    justify-content: space-between;
+  }
+}
